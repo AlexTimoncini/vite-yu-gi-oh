@@ -1,5 +1,5 @@
-@use './partials/mixin.scss';
-@use './partials/variables.scss';
+@use './partials/mixin.scss' as *;
+@use './partials/variables.scss' as *;
 
 *,
 *::before,
@@ -9,4 +9,7 @@ padding: 0;
 box-sizing: border-box;
 }
 
+body{
+    background-color: $priBg;
+}
 
