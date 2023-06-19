@@ -15,5 +15,7 @@
 </template>
 
 <style lang="scss" scoped>
-    
+    main{
+        padding: 3rem 1rem;
+    }
 </style>
