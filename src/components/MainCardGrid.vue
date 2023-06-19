@@ -31,14 +31,27 @@
 <template>
     <MainOptions />
     <LoaderApp v-if="cardList.length === 0" />
-    <ul v-else>
-        <MainCard v-for="card in cardList" :img="card.card_images[0].image_url" />
-    </ul>
+    <div class="ivy_container" v-else>
+        <div class="ivy_counter">
+            Found {{ cardList.length }} cards
+        </div>
+        <ul>
+            <MainCard v-for="card in cardList" :img="card.card_images[0].image_url" />
+        </ul>
+    </div>
 </template>
 
 <style lang="scss" scoped>
     @use '../styles/partials/mixin.scss' as *;
     @use '../styles/partials/variables.scss' as *;
+    .ivy_counter{
+        background-color: rgb(238, 220, 133);
+        padding: 1rem 3rem;
+        font-family: sans-serif;
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        border-radius: 1rem;
+    }
     ul{
         @include flex(row, center, center, wrap);
         background-color: $secBg;
