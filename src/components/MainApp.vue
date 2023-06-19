@@ -1,15 +1,18 @@
 <script>
+import MainOptions from './MainOptions.vue';
     import MainCardGrid from './MainCardGrid.vue';
     export default{
         name: 'MainApp',
         components: {
             MainCardGrid,
+            MainOptions
         }
     }
 </script>
 
 <template>
     <main>
+        <MainOptions />
         <MainCardGrid />
     </main>
 </template>
