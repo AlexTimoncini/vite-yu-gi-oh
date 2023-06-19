@@ -1,10 +1,12 @@
 <script>
+import LoaderApp from './LoaderApp.vue';
     import MainCard from './MainCard.vue';
     import axios from 'axios';
     export default{
         name: 'MainCardGrid',
         components: {
             MainCard,
+            LoaderApp
         },
         data(){
             return{
@@ -24,7 +26,8 @@
 </script>
 
 <template>
-    <ul>
+    <LoaderApp v-if="cardList.length === 0" />
+    <ul v-else>
         <MainCard v-for="card in cardList" :img="card.card_images[0].image_url" />
     </ul>
 </template>
