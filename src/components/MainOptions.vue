@@ -9,6 +9,12 @@
                 archetype : '',
             }
         },
+        methods: {
+            getUrl(parameter){
+                let generalUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
+                store.apiUrl = `${generalUrl}?archetype=${parameter}`; 
+            }
+        },
         created(){
             axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
             .then( (response) => {

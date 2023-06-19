@@ -1,12 +1,15 @@
 <script>
-import LoaderApp from './LoaderApp.vue';
+    import MainOptions from './MainOptions.vue';
+    import LoaderApp from './LoaderApp.vue';
     import MainCard from './MainCard.vue';
     import axios from 'axios';
+    import { store } from '../store.js';
     export default{
         name: 'MainCardGrid',
         components: {
             MainCard,
-            LoaderApp
+            LoaderApp,
+            MainOptions,
         },
         data(){
             return{
@@ -14,7 +17,7 @@ import LoaderApp from './LoaderApp.vue';
             }
         },
         created(){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Lyrilusc').then( (response) => {
+            axios.get(store.apiUrl).then( (response) => {
                 this.cardList = response.data.data;
                 console.log(this.cardList);
             })
@@ -26,6 +29,7 @@ import LoaderApp from './LoaderApp.vue';
 </script>
 
 <template>
+    <MainOptions />
     <LoaderApp v-if="cardList.length === 0" />
     <ul v-else>
         <MainCard v-for="card in cardList" :img="card.card_images[0].image_url" />

@@ -10,7 +10,7 @@
 
 <template>
     <li>
-        <img :src="img" alt="">
+        <img :src="img" alt="" loading="lazy">
     </li>
 </template>
 
@@ -22,6 +22,5 @@
             width: 100%;
         }
 
-        
     }
 </style>
