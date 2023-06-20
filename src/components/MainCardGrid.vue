@@ -38,14 +38,16 @@
         font-family: sans-serif;
         font-size: 1.5rem;
         margin-top: 2rem;
-        border-radius: 1rem;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
     }
     ul{
         @include flex(row, center, center, wrap);
         background-color: $secBg;
         gap: 2rem;
         padding: 2rem;
-        border-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
         list-style: none;
         width: 100%;
     }
