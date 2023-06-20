@@ -23,10 +23,10 @@
         position: relative;
         height: 440px;
         cursor: pointer;
-
         .card{
             transition: all 0.33s linear;
             transform-style: preserve-3d;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 
             img{
                 width: 100%;
