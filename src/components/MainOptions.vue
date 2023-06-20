@@ -36,5 +36,13 @@
 </template>
 
 <style lang="scss" scoped>
-    
+    select{
+        width: 20%;
+        display: block;
+        margin: 0 auto;
+        height: 50px;
+        text-align: center;
+        font-size: 1.2rem;
+        cursor: pointer; 
+    }
 </style>
