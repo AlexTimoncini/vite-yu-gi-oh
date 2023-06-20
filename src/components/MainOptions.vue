@@ -1,18 +1,16 @@
 <script>
     import axios from 'axios';
-    import { store } from '../store.js';
     export default{
         name: 'MainOptions',
         data(){
             return{
                 arcList: [],
-                archetype : '',
             }
         },
         methods: {
             getUrl(parameter){
                 let generalUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
-                store.apiUrl = `${generalUrl}?archetype=${parameter}`; 
+                return `${generalUrl}?archetype=${parameter}`; 
             }
         },
         created(){
@@ -30,9 +28,9 @@
 
 <template>
     <div class="ivy_container">
-        <select name="arcList" id="arcList" v-model="archetype">
+        <select name="arcList" id="arcList">
             <option value="" selected disabled>Choose your archetype</option>
-            <option v-for="arc in arcList" value="arc.archetype_name">{{ arc.archetype_name }}</option>
+            <option v-for="arc in arcList" value="arc.archetype_name" @click="$emit('CardFilter', getUrl(arc.archetype_name))">{{ arc.archetype_name }}</option>
         </select>
     </div>
 </template>

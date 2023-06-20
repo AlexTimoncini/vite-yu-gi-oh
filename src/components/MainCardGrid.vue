@@ -1,42 +1,30 @@
 <script>
-    import MainOptions from './MainOptions.vue';
     import LoaderApp from './LoaderApp.vue';
     import MainCard from './MainCard.vue';
-    import axios from 'axios';
-    import { store } from '../store.js';
     export default{
         name: 'MainCardGrid',
         components: {
             MainCard,
             LoaderApp,
-            MainOptions,
         },
         data(){
             return{
-                cardList: [],
             }
         },
-        created(){
-            axios.get(store.apiUrl).then( (response) => {
-                this.cardList = response.data.data;
-                console.log(this.cardList);
-            })
-            .catch(function (error){
-                console.log(error);
-            });
+        props: {
+            cardGrid : Array,
         }
     }
 </script>
 
 <template>
-    <MainOptions />
-    <LoaderApp v-if="cardList.length === 0" />
+    <LoaderApp v-if="cardGrid.length === 0" />
     <div class="ivy_container" v-else>
         <div class="ivy_counter">
-            Found {{ cardList.length }} cards
+            Found {{ cardGrid.length }} cards
         </div>
         <ul>
-            <MainCard v-for="card in cardList" :img="card.card_images[0].image_url" />
+            <MainCard v-for="card in cardGrid" :img="card.card_images[0].image_url" />
         </ul>
     </div>
 </template>
