@@ -21,7 +21,7 @@
     <LoaderApp v-if="cardGrid.length === 0" />
     <div class="ivy_container" v-else>
         <div class="ivy_counter">
-            Found {{ cardGrid.length }} cards
+            {{ cardGrid[0].archetype }} - Found {{ cardGrid.length }} cards
         </div>
         <ul>
             <MainCard v-for="card in cardGrid" :img="card.card_images[0].image_url" />
